@@ -1,0 +1,9 @@
+{
+  "name": "imagezoom",
+  "version": "1.0.0",
+  "description": "",
+  "author": "xiaoweb",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}

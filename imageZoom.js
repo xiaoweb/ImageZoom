@@ -1,14 +1,14 @@
 /** * Created with WebStorm. * User: RD-小小WEB * Date: 2015/11/20 * Time: 11:15
  *  些插件修改于EasyZoom * https://github.com/xiaoweb/EasyImageZoom *  感谢原作者
  *  作者:小小WEB
- *  Github:
+ *  Github: https://github.com/xiaoweb/ImageZoom
  *  QQ:635156603
  * */
 (function ($) {
 
     'use strict';
 
-    var dw, dh, rw, rh, lx, ly,boxW,boxH,tarW,tarH,zW,zH, w2, h2,maxLeft,minLeft,maxTop,minTop;
+    var dw, dh, rw, rh, lx, ly, boxW, boxH, tarW, tarH, zW, zH, w2, h2, maxLeft, minLeft, maxTop, minTop;
 
     var defaults = {
 
@@ -318,7 +318,7 @@
     };
 
     //透明边缘
-    EasyZoom.prototype.edge = function(a, max, min){
+    EasyZoom.prototype.edge = function (a, max, min) {
         if (a > max) {
             return max;
         } else if (a < min) {

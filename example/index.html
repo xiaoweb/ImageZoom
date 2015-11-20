@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>imageZoom example</title>
+    <script type="text/javascript" src="../jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../imageZoom.js"></script>
+    <style>
+        .easyzoom{width:300px;height:300px; position:relative;}
+        .easyzoom-flyout{width:300px;height:300px;position:absolute;top:0;left:320px;; overflow:hidden;}
+    </style>
+</head>
+<body>
+<div class="picture_pic_big easyzoom">
+    <a href="../test_1000x1000.png">
+        <img src="../test_300_300.png">
+    </a>
+</div>
+<script type="text/javascript">
+    var $easyzoom = $('.easyzoom').easyZoom();
+</script>
+</body>
+</html>

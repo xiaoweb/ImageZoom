@@ -4,6 +4,7 @@
   "description": "",
   "author": "xiaoweb",
   "devDependencies": {
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "gulp-uglify": "^1.5.1"
   }
 }

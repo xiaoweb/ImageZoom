@@ -1,5 +1,5 @@
 /** * Created with WebStorm. * User: RD-小小WEB * Date: 2015/11/20 * Time: 11:15
- *  些插件修改于EasyZoom * https://github.com/xiaoweb/EasyImageZoom *  感谢原作者
+ *  此插件修改于EasyZoom * https://github.com/xiaoweb/EasyImageZoom *  感谢原作者
  *  作者:小小WEB
  *  Github: https://github.com/xiaoweb/ImageZoom
  *  QQ:635156603

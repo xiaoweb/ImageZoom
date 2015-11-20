@@ -2,7 +2,7 @@
 var gulp = require("gulp"),
 uglify = require('gulp-uglify');
 
-gulp.task("js",function(){
+gulp.task("default",function(){
     gulp.src("imageZoom.js")
         .pipe(uglify())
         .pipe(gulp.dest("./dist/"));

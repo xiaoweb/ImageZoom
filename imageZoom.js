@@ -1,19 +1,13 @@
-/** * Created with WebStorm. * User: RD-小小WEB * Date: 2015/11/20 * Time: 11:15
- *  此插件修改于EasyZoom * https://github.com/i-like-robots/EasyZoom *  感谢原作者
- *  作者:小小WEB
- *  Github: https://github.com/xiaoweb/ImageZoom
- *  QQ:635156603
- * */
 (function ($) {
 
     'use strict';
 
-    var dw, dh, rw, rh, lx, ly, boxW, boxH, tarW, tarH, zW, zH, w2, h2, maxLeft, minLeft, maxTop, minTop;
+    var dw, dh, rw, rh, lx, ly,boxW,boxH,tarW,tarH,zW,zH, w2, h2,maxLeft,minLeft,maxTop,minTop;
 
     var defaults = {
 
         // The text to display within the notice box while loading the zoom image.
-        loadingNotice: 'Loading image',
+        loadingNotice: '图片加载中...',
 
         // The text to display within the notice box if an error occurs loading the zoom image.
         errorNotice: 'The image could not be loaded',
@@ -60,9 +54,12 @@
         this.$image = this.$target.find('img');
 
         this.$flyout = $('<div class="easyzoom-flyout" />');
-        this.$notice = $('<div class="easyzoom-notice" />');
-
-        /*透明框*/
+        this.$notice = $('<div class="easyzoom-notice" />').css({
+            position:"absolute",
+            top:"45%",
+            width:"100%",
+            "text-align":"center"
+        });
 
         this.$target
             .on('mouseenter.easyzoom touchstart.easyzoom', function (e) {
@@ -86,6 +83,8 @@
                     self.hide();
                 }
             });
+
+        this._load(this.$link.attr("href"));
 
         if (this.opts.preventClicks) {
             this.$target.on('click.easyzoom', 'a', function (e) {
@@ -201,10 +200,13 @@
             this.isReady = true;
 
             this.$notice.detach();
+            this.endZoomHref =  href;
             this.$flyout.html(this.$zoom);
             this.$target.removeClass('is-loading').addClass('is-ready');
 
-            callback();
+            if(callback){
+                callback();
+            }
         }, this);
 
         zoom.style.position = 'absolute';
@@ -312,19 +314,32 @@
         delete this.$image;
         delete this.$notice;
         delete this.$flyout;
+        delete this.$boxDiv;
+        delete this.endZoomHref;
 
         delete this.isOpen;
         delete this.isReady;
     };
 
     //透明边缘
-    EasyZoom.prototype.edge = function (a, max, min) {
+    EasyZoom.prototype.edge = function(a, max, min){
         if (a > max) {
             return max;
         } else if (a < min) {
             return min;
         } else {
             return a
+        }
+    };
+
+    //手动加载
+    EasyZoom.prototype.load = function(){
+        var href;
+
+        this.$link? href = this.$link.attr("href"):"";
+
+        if(href != this.endZoomHref){
+            this._load(this.$link.attr("href"));
         }
     };
 
@@ -353,5 +368,3 @@
     }
 
 })(jQuery);
-
-
